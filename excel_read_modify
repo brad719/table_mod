@@ -1,0 +1,7 @@
+!pip install pandas
+import pandas as pd
+df = pd.read_csv(r'C:\Users\bradl\Desktop\SchoolCSU\SASUniversityEdition\myfolders\MIS445\crime.csv', encoding='utf-8')
+df.head()
+cats = list(df['offense_category_name'].unique())
+df['new_cats'] = df.apply(lambda x: cats.index(x['offense_category_name']), axis=1)
+df.head()
