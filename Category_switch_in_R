@@ -1,0 +1,13 @@
+Crime$crime_against <- sapply(Crime$crime_against, switch, "Property" = 1, "Person" = 2, "Society" = 3, USE.NAMES = F)
+Crime$offense_category_name<- sapply(Crime$offense_category_name, switch,
+          "Homicide Offense" = 5, 
+          "Sex Offense" = 4,
+          "Kidnapping/Abduction" = 3,
+          "Assault Offenses" = 2,"Robbery" = 2,
+          "Larceny/Theft Offenses" = 2, "Destruction/Damage/Vandalism of Property" = 2,
+          "Arson" = 2, "Stolen Property Offenses" = 2, "Motor Vehicle Theft" = 2,
+          "Burglary/Breaking & Entering" = 2, "Drug/Narcotic Offenses" = 2, "Sex Offenses" =2,
+          "Weapon Law Offenses" = 2,"Weapon Law Violations" = 2,
+          "Fraud Offenses" = 1, "Pornagraphic/Obscene Material" = 1,
+          "Prostitution Offenses" = 1, "Counterfeiting/Forgery" = 1,
+          "Embezzlement" = 1, USE.NAMES = F)
