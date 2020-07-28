@@ -1,0 +1,11 @@
+#Python file for changing string categories into 
+!pip install pandas
+import pandas as pd
+df = pd.read_csv(r'C:\Users\bradl\Desktop\SchoolCSU\SASUniversityEdition\myfolders\MIS445\crime.csv', encoding='utf-8')
+cats = list(df['offense_category_name'].unique())
+df['new_cats'] = df.apply(lambda x: cats.index(x['offense_category_name']), axis=1)
+dogs = list(df['primary_county'].unique())
+persons = list(df['crime_against'].unique())
+df['new_place'] = df.apply(lambda x: dogs.index(x['primary_county']), axis=1)
+df['new_person'] = df.apply(lambda x: persons.index(x['crime_against']), axis=1)
+df.to_excel(r'C:\Users\bradl\Desktop\SchoolCSU\SASUniversityEdition\myfolders\MIS445\crime2.xlsx')
