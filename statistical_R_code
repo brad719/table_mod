@@ -1,0 +1,23 @@
+#standardizing and normalizing
+#min/max standardization
+mi <- min(crime2$age_num)
+ma <- max(crime2$age_num)
+m.age_num <- (crime2$age_num - mi)/(ma-mi)
+#z-score standarization crime categories
+m <- mean(crime2$new_cats); s <- sd(crime2$new_cats)
+z.new_cats <- (crime2$new_cats - m)/s
+z.new_cats
+
+# normality check
+qqnorm(crime2$age_num, datax = TRUE,
+       col='red', main = 'Normality AGE')
+qqline(crime2$age_num, col = 'blue', datax = TRUE)
+
+#scatter plot
+plot(m.age_num, z.new_cats)
+
+#Matrix scatter plots
+pairs(~crime2$incident_hour+crime2$new_cats+crime2$age_num)
+
+#summary statistics
+summary(crime2)
